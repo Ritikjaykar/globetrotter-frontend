@@ -4,7 +4,7 @@ import apiClient from '../axios';
 export const fetchRandomDestination = async (usedDestinations) => {
   try {
     const usedQuery = usedDestinations.map(encodeURIComponent).join(',');
-    const response = await apiClient.get(`/api/destinations/random?used=${usedQuery}`);
+    const response = await apiClient.get(`https://globetrotter-backend-chi.vercel.app/api/destinations/random?used=${usedQuery}`);
 
     if (response.data.completed) {
       return { completed: true };
