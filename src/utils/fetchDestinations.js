@@ -5,6 +5,10 @@ export const fetchRandomDestination = async (usedDestinations) => {
   try {
     const usedQuery = usedDestinations.map(encodeURIComponent).join(',');
     const response = await apiClient.get(`https://globetrotter-backend-chi.vercel.app/api/destinations/random?used=${usedQuery}`);
+    console.log(
+      "Response from backend:",
+      response.data,
+    )
 
     if (response.data.completed) {
       return { completed: true };

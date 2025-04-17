@@ -61,8 +61,11 @@ const GamePage = ({ user, onLogout }) => {
   
 
   useEffect(() => {
-    fetchNewDestination();
-  }, [fetchNewDestination]);
+    if (user) {
+      fetchNewDestination();
+    }
+  }, []);
+
 
   const handleAnswerSelect = (answer) => {
     if (selectedAnswer) return;
